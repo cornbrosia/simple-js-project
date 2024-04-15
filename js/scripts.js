@@ -1,4 +1,4 @@
-let pokemonList = [bulbasuar, charmander, squirtle, jigglypuff];
+
 let bulbasaur = {
     name: 'Bulbasaur',
     height: .7,
@@ -19,3 +19,12 @@ let jigglypuff = {
     height: .5,
     type: ['fairy', 'normal']
 };
+let pokemonList = [bulbasaur, charmander, squirtle, jigglypuff];
+//for loop iterating through my array, printing names and checking height
+for (let i = 0; i < pokemonList.length; i++) {
+    document.write(pokemonList[i].name + ' height:' + pokemonList[i].height); if (pokemonList[i].height >= .6) {
+        document.write(' - Wow, thats a big feller!');
+
+    }
+    document.write('<br>');
+}
