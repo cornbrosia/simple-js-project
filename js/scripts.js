@@ -63,12 +63,12 @@ let pokemonRepository = (function () {
 // }
 
 
-function iterate(pokemonRepository) {
+function iterate(pokemon) {
 
-    document.write(pokemonRepository.getAll.name + ' height:' + pokemonRepository.getAll.height); if (pokemonRepository.getAll.height >= .6) {
+    document.write(pokemon.name + ' height:' + pokemon.height); if (pokemon.height >= .6) {
         document.write(' - Wow, thats a big feller!');
 
     }
     document.write('<br>');
 }
-pokemonRepository.forEach(iterate);
+pokemonRepository.getAll().forEach(iterate);
