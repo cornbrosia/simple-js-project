@@ -35,7 +35,7 @@ let pokemonRepository = (function () {
         return button
     }
     function showDetails(pokemon) {
-        console.log(pokemon);
+        console.log(pokemon.name);
     }
     return {
         add: function (pokemon) {
