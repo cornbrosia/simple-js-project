@@ -10,10 +10,11 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerHTML = pokemon.name;
         button.classList.add('poke-Button');
+        button.id = "poke-Button"
         listItem.appendChild(button);
         pokeVar.appendChild(listItem);
         document.body.appendChild(pokeVar)
-        button.addEventListener('click', () => showDetails(pokemon));
+        button.addEventListener('click', () => showModal());
 
         return button
     }
@@ -58,6 +59,11 @@ let pokemonRepository = (function () {
         });
     }
 
+    function showModal(title, text) {
+        let modalContainer = document.querySelector("#modal-container");
+        modalContainer.classList.add("is-visible");
+    }
+
     return {
         add: add,
         addListItem: addListItem,
@@ -74,32 +80,5 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(pokemon);
     });
 });
-//for loop iterating through my array, printing names and checking height
-// for (let i = 0; i < pokemonList.length; i++) {
-//     document.write(pokemonList[i].name + ' height:' + pokemonList[i].height); if (pokemonList[i].height >= .6) {
-//         document.write(' - Wow, thats a big feller!');
-
-//     }
-//     document.write('<br>');
-// }
 
 
-// function iterate(pokemon) {
-//     {
-//         let button = pokemonRepository.addListItem(pokemon)
-//         button.addEventListener('click', () => pokemonRepository.showDetails(pokemon));
-
-//document.write(pokemon.name + ' height:' + pokemon.height); if (pokemon.height >= .6) {
-//  document.write(' - Wow, thats a big feller!');
-// let pokeVar = document.querySelector('pokemon-list');
-// let listItem = document.createElement('li');
-
-// let button = document.createElement('button');
-// button.innerHTML = pokemon.name;
-// button.classList.add('poke-Button');
-// document.body.appendChild(button);
-// document.body.appendChild(listItem);
-// }
-//document.write('<br>');
-// }
-// pokemonRepository.getAll().forEach(iterate);
