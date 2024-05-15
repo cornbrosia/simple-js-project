@@ -66,7 +66,8 @@ let pokemonRepository = (function () {
         getAll: getAll,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails
+        showDetails: showDetails,
+
     };
 })();
 
@@ -115,13 +116,14 @@ window.addEventListener('keydown', (e) => {
         hideModal();
     }
 });
-
-modalContainer.addEventListener('click', (e) => {
-
+window.addEventListener('click', (c) => {
+    let modalContainer2 = document.querySelector('#modal-container');
     // Since this is also triggered when clicking INSIDE the modal
     // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
+    let target = c.target;
+    if (target === modalContainer2) {
         hideModal();
     }
 });
+
+
