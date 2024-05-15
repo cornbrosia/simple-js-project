@@ -14,10 +14,11 @@ let pokemonRepository = (function () {
         pokeVar.appendChild(listItem);
         document.body.appendChild(pokeVar)
         button.addEventListener("click", () => {
-            showModal('This is the modal content!');
+            showModal('This is the modal content!', 'Pokeman');
         });
         return button
     }
+
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
@@ -75,6 +76,10 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(pokemon);
     });
 });
+function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
+}
 
 function showModal(title, text) {
     let modalContainer = document.querySelector('#modal-container');
@@ -89,6 +94,7 @@ function showModal(title, text) {
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
@@ -103,3 +109,19 @@ function showModal(title, text) {
 
     modalContainer.classList.add('is-visible');
 }
+window.addEventListener('keydown', (e) => {
+    let modalContainer = document.querySelector('#modal-container');
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+    }
+});
+
+modalContainer.addEventListener('click', (e) => {
+
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+        hideModal();
+    }
+});
