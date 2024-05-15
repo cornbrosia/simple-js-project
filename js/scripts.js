@@ -10,13 +10,11 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerHTML = pokemon.name;
         button.classList.add('poke-Button');
-        button.id = "poke-Button"
         listItem.appendChild(button);
         pokeVar.appendChild(listItem);
         document.body.appendChild(pokeVar)
-        button.addEventListener('click', () => showModal());
-        document.getElementById("poke-Button").addEventListener("click", () => {
-            showModal();
+        button.addEventListener("click", () => {
+            showModal('This is the modal content!');
         });
         return button
     }
@@ -103,12 +101,5 @@ function showModal(title, text) {
     modal.appendChild(contentElement);
     modalContainer.appendChild(modal);
 
-
-
     modalContainer.classList.add('is-visible');
 }
-
-document.querySelector('poke-button').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
-});
-
