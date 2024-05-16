@@ -38,7 +38,7 @@ li{
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(147, 231, 210, 0.471);
+  background: rgba(201, 218, 220, 0.471);
 
   /* to show it above other content */
   z-index: 999; 
@@ -52,7 +52,7 @@ li{
 }
 
 .modal {
-  background-color: rgb(17, 221, 236);
+  background-color: rgb(249, 235, 248);
   width: 25%;
   height: 25%;
   position: absolute;
