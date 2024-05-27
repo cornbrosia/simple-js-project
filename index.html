@@ -51,11 +51,31 @@
             </form>
         </div>
     </nav>
-    <div class="modal">
-        <ul class="list-group"></ul>
-        <script src="js/scripts.js"></script>
-        <script src="js/promise-pollyfill.js"></script>
+    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalTitle" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content" role="document">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pokemonModalTitle">Pokemon Name</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p id="pokemonModalHeight"></p>
+                    <p id="pokemonModalWeight"></p>
+                    <p id="pokemonModalTypes"></p>
+
+                </div>
+            </div>
+        </div>
     </div>
+    <ul class="list-group"></ul>
+    <script src="js/scripts.js"></script>
+    <script src="js/promise-pollyfill.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -21,8 +21,7 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             // pass pokemon.imageUrl to showModal()
-            showModal(pokemon.name,
-                "This pokemon is " + pokemon.height + " meters tall!", pokemon.imageUrl)
+            showModal(pokemon);
         });
     }
     function add(pokemon) {
@@ -80,3 +79,12 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
+function showModal(item) {
+
+
+    // Set the modal elements
+    $('#pokemonModalTitle').text(capitalizeFirstLetter(item.name));
+    $('#pokemonModalImage').attr('src', item.imgURL).addClass('modal-image img-fluid');
+    $('#pokemonModalTypes').text(`Types: ${item.types.map(type => capitalizeFirstLetter(type.type.name)).join(', ')}`);
+    $('#pokemonModalHeight').text(`Height: ${item.height} m`).addClass('pt-3');
+}
