@@ -1,4 +1,3 @@
-
 let pokemonRepository = (function () {
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     var pokemonList = [];
@@ -17,6 +16,19 @@ let pokemonRepository = (function () {
         document.body.appendChild(listGroup)
         button.addEventListener("click", () => { showModal(pokemon); });
         return button
+    }
+
+    function showModal(item) {
+
+        loadDetails(item).then(function () {
+            // pass pokemon.imageUrl to showModal()
+            // Set the modal elements
+            $('#pokemonModalName').text(`Name: ${item.name} `);
+            $('#pokemonModalImage').attr('src', item.imgURL).addClass('modal-image img-fluid');
+            $('#pokemonModalTypes').text(`Types: ${item.types} `);
+            $('#pokemonModalHeight').text(`Height: ${item.height} m`);
+        });
+
     }
 
     function showDetails(pokemon) {
@@ -56,7 +68,7 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
-
+            console.log("*** ", details)
         }).catch(function (e) {
             console.error(e);
         });
@@ -80,15 +92,3 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(pokemon);
     });
 });
-
-function showModal(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-
-        // Set the modal elements
-        $('#pokemonModalName').text(`Name: ${item.name} `);
-        $('#pokemonModalImage').attr('src', item.imgURL);
-        $('#pokemonModalTypes').text(`Types: ${item.types} `);
-        $('#pokemonModalHeight').text(`Height: ${item.height} m`);
-        console.log(item.types);
-    });
-}
