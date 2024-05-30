@@ -55,7 +55,8 @@ let pokemonRepository = (function () {
             // Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
+            // item.types = details.types;
+            item.types = details.types.map((types) => types.type.name);
 
         }).catch(function (e) {
             console.error(e);
@@ -90,7 +91,9 @@ function showModal(item) {
         var meters = item.height / 10;
         $('#pokemonModalHeight').text(`Height: ${meters} m`);
         let jsonStr = JSON.stringify(item.types);
+
         console.log(jsonStr);
+
         $('#pokemonModalTypes').text(`Types: ${jsonStr} `);
 
 
