@@ -86,9 +86,13 @@ function showModal(item) {
 
         // Set the modal elements
         $('#pokemonModalName').text(`Name: ${item.name} `);
-        $('#pokemonModalImage').attr('src', item.imgURL);
-        $('#pokemonModalTypes').text(`Types: ${item.types} `);
-        $('#pokemonModalHeight').text(`Height: ${item.height} m`);
-        console.log(item.types);
+        $('#pokemonModalImage').prepend($('<img>', { id: 'theImg', src: item.imageUrl }))
+        var meters = item.height / 10;
+        $('#pokemonModalHeight').text(`Height: ${meters} m`);
+        let jsonStr = JSON.stringify(item.types);
+        console.log(jsonStr);
+        $('#pokemonModalTypes').text(`Types: ${jsonStr} `);
+
+
     });
 }
