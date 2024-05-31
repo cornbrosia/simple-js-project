@@ -55,7 +55,6 @@ let pokemonRepository = (function () {
             // Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            // item.types = details.types;
             item.types = details.types.map((types) => types.type.name);
 
         }).catch(function (e) {
@@ -87,6 +86,7 @@ function showModal(item) {
 
         // Set the modal elements
         $('#pokemonModalName').text(`Name: ${item.name} `);
+        $("#pokemonModalImage").attr("src", item.imageUrl);
         $('#pokemonModalImage').prepend($('<img>', { id: 'theImg', src: item.imageUrl }))
         var meters = item.height / 10;
         $('#pokemonModalHeight').text(`Height: ${meters} m`);
