@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     var pokemonList = [];
-    // let imageUrl = loadDetails(pokemon).imgUrl;
+
     function addListItem(pokemon) {
         let listGroup = document.querySelector('.list-group');
         let listItem = document.createElement('li');
@@ -91,9 +91,6 @@ function showModal(item) {
         var meters = item.height / 10;
         $('#pokemonModalHeight').text(`Height: ${meters} m`);
         let jsonStr = JSON.stringify(item.types);
-
-        console.log(jsonStr);
-
         $('#pokemonModalTypes').text(`Types: ${jsonStr} `);
 
 

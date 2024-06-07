@@ -28,9 +28,9 @@ li{
 
 #modal-container {
   display: none;
-}
+} */
 
-#modal-container.is-visible {
+/* #modal-container.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -40,18 +40,18 @@ li{
   height: 100%;
   background: rgba(201, 218, 220, 0.471);
 
-  /* to show it above other content */
-  z-index: 999; 
+  to show it above other content 
+  z-index: 999;  */
 
   /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
+  /* overflow: auto;  */
 
   /* this is used to center the modal */
-  display: grid;
-  text-align: center;
-}
+  /* display: grid;
+  text-align: center; */
+/* } */
 
-.modal {
+/* .modal {
   background-color: rgb(249, 235, 248);
   width: 25%;
   height: 25%;
@@ -60,5 +60,4 @@ li{
   left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-} */
+ } 
